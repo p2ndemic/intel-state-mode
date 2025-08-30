@@ -1,5 +1,5 @@
 [Unit]
-Description=Set custom Intel P-state parameters
+Description=Intel P-State Custom Profile
 
 [Service]
 Type=oneshot
