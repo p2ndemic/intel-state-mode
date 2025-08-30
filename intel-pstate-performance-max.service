@@ -1,0 +1,7 @@
+[Unit]
+Description=Set performance-max Intel P-state parameters
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/intel-pstate-helper --governor performance --epp performance --hwp-dynamic-boost 1
+RemainAfterExit=yes
