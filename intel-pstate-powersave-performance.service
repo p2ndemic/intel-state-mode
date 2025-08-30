@@ -4,3 +4,4 @@ Description=Set powersave-performance Intel P-state parameters
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/intel-pstate-helper --governor powersave --epp performance --hwp-dynamic-boost 0
+RemainAfterExit=yes
