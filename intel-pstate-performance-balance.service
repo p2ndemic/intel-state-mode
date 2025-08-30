@@ -1,5 +1,5 @@
 [Unit]
-Description=Set performance-balance Intel P-state parameters
+Description=Intel P-State Performance-Balance Profile
 
 [Service]
 Type=oneshot
