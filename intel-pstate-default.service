@@ -5,6 +5,7 @@ After=multi-user.target
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/intel-pstate-helper --governor powersave --epp balance_performance --no-turbo 0 --hwp-dynamic-boost 0 --min-perf-pct 10 --max-perf-pct 100
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
