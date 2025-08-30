@@ -1,0 +1,6 @@
+[Unit]
+Description=Set powersave-balance Intel P-state parameters
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/intel-pstate-help --governor powersave --epp balance_performance --hwp-dynamic-boost 0
