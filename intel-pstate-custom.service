@@ -1,0 +1,7 @@
+[Unit]
+Description=Set custom Intel P-state parameters
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/intel-pstate-helper --governor performance --epp performance --no-turbo 0 --hwp-dynamic-boost 0 --min-perf-pct 10 --max-perf-pct 75 --nosmt off 
+RemainAfterExit=yes
