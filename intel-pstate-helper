@@ -52,7 +52,6 @@ show_usage() {
     echo "  --hwp-dynamic-boost <0 | 1>   Enable/disable HWP Dynamic Boost (0=disable, 1=enable)"
     echo "  --min-perf-pct <value>        Set minimum performance percentage (0-100)"
     echo "  --max-perf-pct <value>        Set maximum performance percentage (0-100)"
-    echo "  --energy-efficiency <0 | 1>   Enable/disable energy-efficiency optimizations (0=disable, 1=enable; Kaby Lake/Coffee Lake only)"
     echo "  --nosmt <on | off>            Enable/disable SMT (Hyper-Threading)"
     echo "  --help                        Show this help message"
 }
@@ -160,16 +159,6 @@ fi
 # Set Max P-state allowed, as % of max supported (highest turbo P-state)
 if [[ -n "$MAX_PERF_PCT" ]]; then
     echo "$MAX_PERF_PCT" > /sys/devices/system/cpu/intel_pstate/max_perf_pct
-fi
-
-# Enable/disable energy-efficiency optimizations [if available] ← (Kaby Lake/Coffee Lake only)
-# When enabled (1), may limit max frequency (with HWP: in turbo range; without HWP: entire range). Disabled (0) by default with HWP.
-if [[ -n "$ENERGY_EFFICIENCY" ]]; then
-    if [[ -f /sys/devices/system/cpu/intel_pstate/energy_efficiency ]]; then
-        echo "$ENERGY_EFFICIENCY" > /sys/devices/system/cpu/intel_pstate/energy_efficiency
-    else
-        echo "Warning: energy_efficiency is not supported on this system"
-    fi
 fi
 
 # Enable/disable SMT (Hyper-Threading) [if available]
